@@ -24,13 +24,13 @@ class ConverterFactory(object):
             print('[ae_convert_ros_msg] Converting a "geometry_msgs.msg.PoseStamped" object')
             return PoseStampedConverter.convert_ros_msg(msg)
         elif type(msg).__name__.lower() == 'boundingbox':
-            print('[ae_convert_ros_msg] Converting an "mcr_perception_msgs.msg.BoundingBox" object')
+            print('[ae_convert_ros_msg] Converting an "mas_perception_msgs.msg.BoundingBox" object')
             return BoundingBoxConverter.convert_ros_msg(msg)
         elif type(msg).__name__.lower() == 'object':
-            print('[ae_convert_ros_msg] Converting an "mcr_perception_msgs.msg.Object" object')
+            print('[ae_convert_ros_msg] Converting an "mas_perception_msgs.msg.Object" object')
             return ObjectConverter.convert_ros_msg(msg)
         elif type(msg).__name__.lower() == 'plane':
-            print('[ae_convert_ros_msg] Converting an "mcr_perception_msgs.msg.Plane" object')
+            print('[ae_convert_ros_msg] Converting an "mas_perception_msgs.msg.Plane" object')
             return PlaneConverter.convert_ros_msg(msg)
 
         rospy.loginfo('[ae_convert_ros_msg] Unknown message type; ignoring request')

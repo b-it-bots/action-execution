@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from mcr_perception_msgs.msg import Plane as MCRPlane
+from mas_perception_msgs.msg import Plane as MCRPlane
 
 from ae_ros_message_converter.converters.converter_base import ConverterBase
 from ae_ros_message_converter.converters.pose_converter import PoseStampedConverter
@@ -14,11 +14,11 @@ class PlaneConverter(ConverterBase):
 
     @staticmethod
     def convert_ros_msg(msg):
-        '''Converts an "mcr_perception_msgs.msg.Plane" message to an
+        '''Converts an "mas_perception_msgs.msg.Plane" message to an
         "action_execution.geometry.plane.Plane" object.
 
         Keyword argumens:
-        msg -- an "mcr_perception_msgs.msg.Plane" message
+        msg -- an "mas_perception_msgs.msg.Plane" message
 
         '''
         obj = Plane()
@@ -39,7 +39,7 @@ class PlaneConverter(ConverterBase):
     @staticmethod
     def convert_to_ros_msg(obj):
         '''Converts an 'action_execution.geometry.plane.Plane' object to an
-        'mcr_perception_msgs.msg.Plane' message.
+        'mas_perception_msgs.msg.Plane' message.
 
         Keyword argumens:
         obj -- an 'action_execution.geometry.plane.Plane' object

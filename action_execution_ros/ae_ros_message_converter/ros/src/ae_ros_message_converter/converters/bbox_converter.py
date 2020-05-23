@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from geometry_msgs.msg import Point
-from mcr_perception_msgs.msg import BoundingBox
+from mas_perception_msgs.msg import BoundingBox
 
 from ae_ros_message_converter.converters.converter_base import ConverterBase
 
@@ -13,11 +13,11 @@ class BoundingBoxConverter(ConverterBase):
 
     @staticmethod
     def convert_ros_msg(msg):
-        '''Converts an 'mcr_perception_msgs.msg.BoundingBox' message to an
+        '''Converts an 'mas_perception_msgs.msg.BoundingBox' message to an
         'action_execution.geometry.bbox.BBox3' object.
 
         Keyword argumens:
-        msg -- an 'mcr_perception_msgs.msg.BoundingBox' message
+        msg -- an 'mas_perception_msgs.msg.BoundingBox' message
 
         '''
         bbox = BBox3()
@@ -37,7 +37,7 @@ class BoundingBoxConverter(ConverterBase):
     @staticmethod
     def convert_to_ros_msg(obj):
         '''Converts an 'action_execution.geometry.bbox.BBox3' object to an
-        'mcr_perception_msgs.msg.BoundingBox' message.
+        'mas_perception_msgs.msg.BoundingBox' message.
 
         Keyword argumens:
         obj -- an 'action_execution.geometry.bbox.BBox3' object

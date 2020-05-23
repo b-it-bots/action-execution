@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from mcr_perception_msgs.msg import Object
+from mas_perception_msgs.msg import Object
 
 from ae_ros_message_converter.converters.converter_base import ConverterBase
 from ae_ros_message_converter.converters.pose_converter import PoseStampedConverter
@@ -14,11 +14,11 @@ class ObjectConverter(ConverterBase):
 
     @staticmethod
     def convert_ros_msg(msg):
-        '''Converts an "mcr_perception_msgs.msg.Object" message to an
+        '''Converts an "mas_perception_msgs.msg.Object" message to an
         "action_execution.geometry.object.Object3d" object.
 
         Keyword argumens:
-        msg -- an "mcr_perception_msgs.msg.Object" message
+        msg -- an "mas_perception_msgs.msg.Object" message
 
         '''
         obj = Object3d()
@@ -33,7 +33,7 @@ class ObjectConverter(ConverterBase):
     @staticmethod
     def convert_to_ros_msg(obj):
         '''Converts an 'action_execution.geometry.object.Object3d' object to an
-        'mcr_perception_msgs.msg.Object' message.
+        'mas_perception_msgs.msg.Object' message.
 
         Keyword argumens:
         obj -- an 'action_execution.geometry.object.Object3d' object
