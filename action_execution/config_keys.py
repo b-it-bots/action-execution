@@ -25,7 +25,7 @@ class PathConfig(object):
     Email -- aleksandar.mitrevski@h-brs.de
 
     '''
-    ONTOLOGY_URL = 'file:///home/alex/catkin_workspaces/robocup_ws/src/action-execution/action_execution/ontology/actions.owl'
+    ONTOLOGY_URL = '<absolute-path-of-action-execution>/action_execution/ontology/actions.owl'
     ONTOLOGY_ENTITY_PREFIX = 'action'
     DIR_ABS_PATH = '<absolute-path-of-action_execution>'
     ACTION_CONFIG_PATH = 'ontology/actions'
@@ -43,7 +43,7 @@ class ActionConfigKeys(object):
     ID = 'action_id'
     INSTANCE_OF = 'isInstanceOf'
     CAPABILITIES = 'requires'
-    FAILURE_CASES = 'hasFailurecase'
+    FAILURE_CASES = 'hasFailureCase'
     MODELS = 'hasModel'
     COMPOSE_MODELS = 'composeModels'
     COMBINATION_MODEL = 'combinationModel'
