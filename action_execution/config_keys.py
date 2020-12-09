@@ -25,9 +25,9 @@ class PathConfig(object):
     Email -- aleksandar.mitrevski@h-brs.de
 
     '''
-    ONTOLOGY_URL = '<absolute-path-of-action-execution>/action_execution/ontology/actions.owl'
+    ONTOLOGY_URL = 'file:///workspace/src/action-execution/action_execution/ontology/actions.owl'
     ONTOLOGY_ENTITY_PREFIX = 'action'
-    DIR_ABS_PATH = '<absolute-path-of-action_execution>'
+    DIR_ABS_PATH = '/workspace/src/action-execution'
     ACTION_CONFIG_PATH = 'ontology/actions'
     FAILURE_CASE_CONFIG_PATH = 'ontology/failure_cases'
     MODEL_CONFIG_PATH = 'ontology/execution_models'
