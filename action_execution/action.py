@@ -27,7 +27,7 @@ from action_execution.config_keys import PathConfig, ActionConfigKeys, \
                                          LoggerConfigKeys, OBJ_MODULE_MAPPING
 from action_execution.execution_model import ExecutionModel
 from action_execution.failure_case import FailureCase
-from action_execution.logger.execution_data_logger import ExecutionDataLogger
+# from action_execution.logger.execution_data_logger import ExecutionDataLogger
 
 class ActionData(object):
     def __init__(self, action_name=None):
@@ -72,7 +72,7 @@ class Action(object):
         self.action_data = ActionData(action_name)
         self.failure_case_data = FailureCaseData()
         self.model_data = ModelData()
-        self.data_logger = ExecutionDataLogger()
+        # self.data_logger = ExecutionDataLogger()
 
         if self.action_data.id is not None:
             self.load_config(self.action_data.id)
@@ -121,7 +121,7 @@ class Action(object):
             log_dict['inputs']['model_data'].update(model.input_to_dict())
             log_dict['outputs']['model_data'].update(model.result_to_dict(results))
 
-        self.data_logger.log_model_data(self.action_data.id, log_dict)
+        # self.data_logger.log_model_data(self.action_data.id, log_dict)
         return model_results
 
     def check_failures(self, **kwargs):
@@ -129,35 +129,35 @@ class Action(object):
         '''
         pass
 
-    def get_execution_data(self, start_timestamp=0., end_timestamp=0.):
-        # TODO: preprocess the input data before returning it
-        input_data = self.data_logger.get_action_data(LoggerConfigKeys.MODEL_INPUT_COLLECTION,
-                                                      self.action_data.id,
-                                                      start_timestamp,
-                                                      end_timestamp)
-
-        result_data = self.data_logger.get_action_data(LoggerConfigKeys.MODEL_RESULT_COLLECTION,
-                                                       self.action_data.id,
-                                                       start_timestamp,
-                                                       end_timestamp)
-
-        result_data_dict = dict()
-        for model, data in result_data.items():
-            result_data_dict[model] = dict()
-            for key, value in data.items():
-                if isinstance(value, list):
-                    result_data_dict[model][key] = list()
-                    for v in value:
-                        if isinstance(v, dict):
-                            obj_type = v['header']['type']
-                            obj_module = 'action_execution.' + OBJ_MODULE_MAPPING[obj_type]
-                            obj_class = getattr(import_module(obj_module),
-                                                obj_type)
-                            result_data_dict[model][key].append(obj_class.from_dict(v))
-                        else:
-                            result_data_dict[model][key].append(v)
-
-        return input_data, result_data_dict
+    # def get_execution_data(self, start_timestamp=0., end_timestamp=0.):
+    #     # TODO: preprocess the input data before returning it
+    #     input_data = self.data_logger.get_action_data(LoggerConfigKeys.MODEL_INPUT_COLLECTION,
+    #                                                   self.action_data.id,
+    #                                                   start_timestamp,
+    #                                                   end_timestamp)
+    #
+    #     result_data = self.data_logger.get_action_data(LoggerConfigKeys.MODEL_RESULT_COLLECTION,
+    #                                                    self.action_data.id,
+    #                                                    start_timestamp,
+    #                                                    end_timestamp)
+    #
+    #     result_data_dict = dict()
+    #     for model, data in result_data.items():
+    #         result_data_dict[model] = dict()
+    #         for key, value in data.items():
+    #             if isinstance(value, list):
+    #                 result_data_dict[model][key] = list()
+    #                 for v in value:
+    #                     if isinstance(v, dict):
+    #                         obj_type = v['header']['type']
+    #                         obj_module = 'action_execution.' + OBJ_MODULE_MAPPING[obj_type]
+    #                         obj_class = getattr(import_module(obj_module),
+    #                                             obj_type)
+    #                         result_data_dict[model][key].append(obj_class.from_dict(v))
+    #                     else:
+    #                         result_data_dict[model][key].append(v)
+    #
+    #     return input_data, result_data_dict
 
     def load_config(self, action_name):
         '''Loads the config file of the action specified by 'action_name'
